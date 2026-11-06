@@ -24,31 +24,21 @@ def display_board(board):
 
 # This function requests the current game state from the server.
 def get_game_state():
-
-    # TODO 1: Send an HTTP GET request to SERVER_URL + "/game/state".
-    # Store the HTTP response in a variable named response.
-
-    # TODO 2: Read the JSON data from the server's HTTP response.
-    # Return the data to the caller.
-    
-    #Remove the "pass" statement below when you have added your own code above
-    pass
+        response = requests.get(SERVER_URL + "/game/state")
+        data = response.json()
+        return data
 
 
 # This function sends a player's move to the server.
 def send_move(position):
 
-    # TODO 3: Send an HTTP POST request to SERVER_URL + "/game/move".
-    # Send the position in JSON as {"position": position}.
-    # Store the HTTP response in a variable named response.
+       response = requests.post(
+        SERVER_URL + "/game/move",
+        json={"position": position}
+    )
 
-    # TODO 4: Read the JSON data from the server's HTTP response.
-    # Return the data to the caller.
-    
-    #Remove the "pass" statement below when you have added your own code above
-    pass
-
-
+       data = response.json()
+       return data
 # Display the game title.
 print("TIC-TAC-TOE")
 
