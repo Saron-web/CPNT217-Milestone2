@@ -31,14 +31,13 @@ def get_game_state():
 
 # This function sends a player's move to the server.
 def send_move(position):
-
-       response = requests.post(
+     response = requests.post(
         SERVER_URL + "/game/move",
         json={"position": position}
     )
 
-       data = response.json()
-       return data
+     data = response.json()
+     return data
 # Display the game title.
 print("TIC-TAC-TOE")
 
